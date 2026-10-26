@@ -1,0 +1,15 @@
+function secondHighest(scores) {
+    let highest = -1;
+    let second = -1;
+
+    for (const score of scores) {
+        if (score > highest) {
+            second = highest;
+            highest = score;
+        } else if (score < highest && score > second) {
+            second = score;
+        }
+    }
+
+    return second;
+}
