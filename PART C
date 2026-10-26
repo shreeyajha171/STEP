@@ -1,0 +1,20 @@
+Question 1: Abstraction
+Abstraction means showing only the necessary features of an object while hiding its internal implementation. For example, when using an ATM, a customer sees options to withdraw cash, check balance, or deposit money. The internal bank communication, transaction validation, and account database operations are hidden.
+
+Question 2: Abstraction vs Encapsulation
+Abstraction focuses on what an object does, while encapsulation focuses on protecting how its data is accessed and modified. An abstract class can define operations without specifying every implementation detail, while private fields and controlled methods protect the object's state. Together, they reduce complexity and improve data security and maintainability.
+
+Question 3: Constructor in an Abstract Class
+An abstract class can have a constructor to initialize shared fields and perform common setup for its subclasses. Although the abstract class cannot be instantiated directly, its constructor executes when a concrete subclass object is created. The subclass constructor invokes it explicitly with super() or implicitly if no other constructor call is specified.
+
+Question 4: Restrictions on Abstract Methods
+Private: A private method is not accessible to subclasses for overriding, so it cannot require an implementation through inheritance.
+
+Static: Static methods belong to the class and are not dynamically overridden, so an abstract static method cannot be implemented through runtime polymorphism.
+
+Final: A final method cannot be overridden, which conflicts with the requirement that subclasses provide an implementation of an abstract method.
+
+Question 5: Diamond Problem
+The diamond problem occurs when a class inherits the same method or state through two different parent classes, creating ambiguity about which implementation should be used. Java avoids this issue by allowing a class to extend only one class, rather than multiple classes. Java does permit multiple interfaces, but if conflicting default methods are inherited, the implementing class must resolve the conflict by overriding the method.
+
+
