@@ -1,0 +1,59 @@
+Q1
+
+C
+
+Abstraction hides implementation details and exposes essential operations.
+
+Q2
+
+C
+
+An abstract class cannot be instantiated directly.
+
+Q3
+
+B
+
+The subclass must implement abstract methods or itself be abstract.
+
+Q4
+
+C
+
+A private abstract method cannot be overridden by subclasses.
+
+Q5
+
+C
+
+Interface fields are implicitly public static final.
+
+Q6
+
+C
+
+A Java class can implement any number of interfaces.
+
+Q7
+
+D
+
+Implemented interface methods must be public.
+
+Q8
+
+C
+
+Interfaces avoid the usual multiple-class inheritance ambiguity involving inherited state and implementations.
+
+Q9
+
+D
+
+Conflicting inherited default methods must be resolved by overriding the method.
+
+Q10
+
+B
+
+An abstract class constructor executes when a subclass object is created.
