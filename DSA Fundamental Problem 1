@@ -1,0 +1,19 @@
+function busiestRow(grid) {
+    let bestRow = 0;
+    let maxTotal = -1;
+
+    for (let i = 0; i < grid.length; i++) {
+        let total = 0;
+
+        for (let j = 0; j < grid[i].length; j++) {
+            total += grid[i][j];
+        }
+
+        if (total > maxTotal) {
+            maxTotal = total;
+            bestRow = i;
+        }
+    }
+
+    return `Row ${bestRow}, Total ${maxTotal}`;
+}
