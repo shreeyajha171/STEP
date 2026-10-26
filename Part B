@@ -1,0 +1,60 @@
+Q1
+
+C — Polymorphism
+
+Calls the appropriate overridden method without repeated type checks.
+
+Q2
+
+A, B, C
+
+Each describes a possible genuine is-a relationship. D describes a has-a relationship.
+
+Q3
+
+C — Runtime method dispatch
+
+Java selects the overridden implementation based on the actual object.
+
+Q4
+
+C — Inheritance-based polymorphism
+
+Different subclasses implement the common area method.
+
+Q5
+
+A, C, D
+
+Book can specialize behavior, the base class defines common behavior, and a DVD can be referenced as a LibraryItem.
+
+Q6
+
+A, C
+
+A Dog object called through an Animal reference executes the overridden Dog method.
+
+Q7
+
+C
+
+A new WalletPayment can be added without changing the existing processing loop.
+
+Q8
+
+A
+
+Unrelated inheritance creates tight coupling and incorrect is-a relationships.
+
+Q9
+
+A, C
+
+A generic sender can process different notification types, and new types can be added without changing sender logic.
+
+Q10
+
+A, B, C
+
+Polymorphic collections enable uniform processing and reduce explicit casting.
+
