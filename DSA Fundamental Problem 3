@@ -1,0 +1,5 @@
+function rotateRoster(names, k) {
+    const n = names.length;
+    k = k % n;
+    return names.slice(n - k).concat(names.slice(0, n - k));
+}
