@@ -1,0 +1,37 @@
+function countInBand(scores, low, high) {
+    function lowerBound(target) {
+        let left = 0;
+        let right = scores.length;
+
+        while (left < right) {
+            const mid = Math.floor((left + right) / 2);
+
+            if (scores[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return left;
+    }
+
+    function upperBound(target) {
+        let left = 0;
+        let right = scores.length;
+
+        while (left < right) {
+            const mid = Math.floor((left + right) / 2);
+
+            if (scores[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return left;
+    }
+
+    return upperBound(high) - lowerBound(low);
+}
