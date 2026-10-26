@@ -1,0 +1,71 @@
+Question 1: How does inheritance support code reuse and specialization?
+Inheritance allows a subclass to reuse fields and methods from a superclass without rewriting them. The subclass can also add new features or override inherited methods to provide specialized behavior.
+
+For example, in a payroll system, an Employee class can store an employee's name and define a common method called calculateSalary(). FullTimeEmployee and PartTimeEmployee can inherit the common details and calculate salaries according to their respective rules.
+
+Question 2: What is an is-a relationship?
+An is-a relationship means that an object of a subclass is also an instance of its superclass. For example, a Car is a Vehicle, so Car can inherit from Vehicle.
+
+Identifying a genuine is-a relationship is important because inheritance should represent meaningful specialization. Using inheritance between unrelated classes can make the program difficult to maintain. For example, a Car has an Engine, so composition is generally more appropriate for representing that relationship.
+
+Question 3: What is method overriding?
+Method overriding occurs when a subclass provides its own implementation of an inherited instance method with a compatible signature.
+
+For example, an Employee class might define calculateSalary(). A FullTimeEmployee subclass can override it to return a fixed monthly salary, while a PartTimeEmployee subclass can override it to calculate salary from hours worked and the hourly rate.
+
+When the method is called through an Employee reference, Java executes the implementation belonging to the actual object.
+
+Question 4: Explain runtime polymorphism.
+Runtime polymorphism allows a superclass reference to refer to a subclass object and execute the subclass's overridden method.
+
+Vehicle vehicle = new Car();
+vehicle.startEngine();
+
+If Car overrides startEngine(), Java executes the Car implementation. The method implementation is selected at runtime according to the actual object's class. This mechanism is called dynamic method dispatch.
+
+Question 5: What are polymorphic collections?
+A polymorphic collection stores objects of different subclasses using a common superclass or interface as the reference type.
+
+Vehicle[] vehicles = {
+    new Car(),
+    new Motorcycle(),
+    new Bus()
+};
+
+for (Vehicle vehicle : vehicles) {
+    vehicle.startEngine();
+}
+
+Each object executes its own overridden startEngine() method. This simplifies processing because the loop does not need to identify each vehicle type explicitly. It also makes adding new vehicle subclasses easier.
+
+Question 6: Compare polymorphism with repeated conditional statements.
+Polymorphism uses overridden methods to allow each object to perform its own specialized behavior. For example, different payment classes can implement calculateFee() differently while a common processor calls the same method on every payment.
+
+Repeated if-else or switch statements require the processing code to identify each type and select its behavior explicitly. As new types are added, these conditions often need modification. Polymorphism generally improves maintainability, extensibility, and separation of responsibilities.
+
+Question 7: How do inheritance and polymorphism make a design extensible?
+Inheritance allows a new subclass to reuse the common structure of a superclass, while polymorphism allows the existing processing code to invoke the subclass's specialized behavior through a common reference.
+
+For example, a payment system may already support CardPayment and BankTransferPayment. Adding WalletPayment requires creating a subclass and implementing calculateFee(). If the processor already works with Payment references, its existing processing loop does not need to change.
+
+Question 8: Differentiate inherited and overridden behavior.
+Inherited behavior is a method that a subclass receives from its superclass and uses without replacing its implementation. For example, a Car might inherit a displayRegistration() method from Vehicle.
+
+Overridden behavior occurs when a subclass supplies its own implementation of an inherited method. For example, Car and Motorcycle might override startEngine() to perform different actions.
+
+A subclass inherits a method when the existing behavior is suitable. It overrides the method when its specialized behavior needs to differ.
+
+Question 9: Why is inheritance inappropriate when there is no genuine is-a relationship?
+Using inheritance solely to reuse code can create incorrect class relationships and tight coupling. It can also force a subclass to inherit methods or assumptions that do not make sense for it.
+
+For example, making Calculator inherit from HelperUtility merely to reuse a utility method is inappropriate if a calculator is not a type of utility object in the intended design. Composition or a separate utility class would be more suitable. Choosing the correct relationship makes the program easier to extend and maintain.
+
+Question 10: Analyze a VehicleRental system using inheritance.
+A VehicleRental superclass can represent common rental information, such as the vehicle ID, rental duration, and base rental cost. It can also define common methods such as calculateRentalCost().
+
+CarRental and TruckRental can inherit these common details and override calculateRentalCost() to apply their specific pricing rules. For example, truck rentals might include an additional load-based charge, while car rentals might use a daily rate.
+
+A rental service can process both types through VehicleRental references and call calculateRentalCost() on each object. Runtime polymorphism ensures that the correct pricing implementation is executed without requiring the service to check each rental type.
+
+
+
