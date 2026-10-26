@@ -1,0 +1,17 @@
+function attendanceSummary(days) {
+    let present = 0;
+    let streak = 0;
+    let longest = 0;
+
+    for (const day of days) {
+        if (day === 1) {
+            present++;
+            streak++;
+            longest = Math.max(longest, streak);
+        } else {
+            streak = 0;
+        }
+    }
+
+    return `Present: ${present}, Longest streak: ${longest}`;
+}
