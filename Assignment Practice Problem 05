@@ -1,0 +1,151 @@
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+    static void lineUp(int[] heights) {
+        int pass = 1;
+
+        while (true) {
+            boolean swapped = false;
+
+            for (int j = 0; j < heights.length - 1; j++) {
+                if (heights[j] > heights[j + 1]) {
+                    int temp = heights[j];
+                    heights[j] = heights[j + 1];
+                    heights[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            System.out.println("Pass " + pass + ": " + Arrays.toString(heights));
+            pass++;
+
+            if (!swapped)
+                break;
+        }
+    }
+
+    static int prizeTable(int[] marks) {
+        int swaps = 0;
+
+        for (int i = 0; i < marks.length - 1; i++) {
+            int maxIndex = i;
+
+            for (int j = i + 1; j < marks.length; j++) {
+                if (marks[j] > marks[maxIndex])
+                    maxIndex = j;
+            }
+
+            if (maxIndex != i) {
+                int temp = marks[i];
+                marks[i] = marks[maxIndex];
+                marks[maxIndex] = temp;
+                swaps++;
+            }
+        }
+
+        return swaps;
+    }
+
+    static void shelf(int[] books) {
+        for (int i = 1; i < books.length; i++) {
+            int key = books[i];
+            int j = i - 1;
+
+            while (j >= 0 && books[j] > key) {
+                books[j + 1] = books[j];
+                j--;
+            }
+
+            books[j + 1] = key;
+            System.out.println("After placing " + key + ": " + Arrays.toString(books));
+        }
+    }
+
+    static int firstBreak(int[] tokens) {
+        for (int i = 1; i < tokens.length; i++) {
+            if (tokens[i] < tokens[i - 1])
+                return i;
+        }
+
+        return -1;
+    }
+
+    static int[] diceSort(int[] rolls) {
+        int[] count = new int[7];
+
+        for (int i = 0; i < rolls.length; i++) {
+            count[rolls[i]]++;
+        }
+
+        System.out.print("Counts: ");
+        for (int i = 1; i <= 6; i++) {
+            System.out.print(i + ":" + count[i] + " ");
+        }
+        System.out.println();
+
+        int[] result = new int[rolls.length];
+        int index = 0;
+
+        for (int i = 1; i <= 6; i++) {
+            for (int j = 0; j < count[i]; j++) {
+                result[index++] = i;
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("1. Height Line-Up");
+        System.out.println("2. Prize Table");
+        System.out.println("3. Library Book Shelf");
+        System.out.println("4. Is the Queue in Order?");
+        System.out.println("5. Dice Throw Tally");
+
+        int choice = sc.nextInt();
+
+        System.out.println("Enter number of elements:");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        switch (choice) {
+            case 1:
+                lineUp(arr);
+                break;
+
+            case 2:
+                int swaps = prizeTable(arr);
+                System.out.println(Arrays.toString(arr) + " swaps = " + swaps);
+                break;
+
+            case 3:
+                shelf(arr);
+                break;
+
+            case 4:
+                System.out.println(firstBreak(arr));
+                break;
+
+            case 5:
+                int[] sorted = diceSort(arr);
+                System.out.println("Sorted: " + Arrays.toString(sorted));
+                break;
+
+            default:
+                System.out.println("Invalid choice");
+        }
+
+        sc.close();
+    }
+}
